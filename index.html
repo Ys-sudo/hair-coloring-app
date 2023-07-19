@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Hair Segmentation Task for web</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="App">
+      <header class="App-header">
+      
+      <div id="testingInputs" style="position: fixed;top:5px;right:5px;width:100px;z-index:1000;">
+      <label>Color:</label>
+      <input style="width:100px,height:100px" type="color" id="color">
+      <br>
+      <label>Blur:</label>
+      <input style="width:50px;height:25px" type="number" placeholder="1.01" step=".01" min="0" max="100" id="blur">
+      <label>Opacity:</label>
+      <input style="width:50px;height:25px" type="number" placeholder="1.01" step=".01" min="0" max="1" id="opacity">
+      </div>
+        
+        <h2>Test on video</h2>
+        <p><b>Click on the button and enable camera access</b> to see its hair segmentation in real time.</p>
+        <br />
+        <div class="webcam">
+          <button id="webcamButton">
+            <span style="font-size:2em">ENABLE WEBCAM</span>
+          </button>
+          <canvas id="canvas1" width="640px" height="480px" style="display:none;position:relative;z-index:100;opacity:.5;filter:blur(1px)"></canvas>
+          <canvas id="canvas2" width="640px"  height="480px" style="display:none;position:absolute;margin-top:-480px;z-index:0"></canvas>
+          <video id="webcam" width="640px" height="480px" playsinline="true"  style="display:block;"></video>
+        </div>
+        
+        
+  <h2>Tests on images</h2>
+  <p><b>Click on an image below</b> to see its hair segmentation.</p>
+  
+        
+  <div class="flex-cont">
+    
+  <div class="segmentOnClick">
+    <canvas class="removed"></canvas>
+    <img src="https://cdn.glitch.global/eb18e63f-936a-4172-8bdd-9263c7a6a04a/0.jpg?v=1689605799161" crossorigin="anonymous" title="Click to get segmentation!" />
+    <p class="classification removed"></p>
+  </div>
+  
+  <div class="segmentOnClick">
+    <canvas class="removed"></canvas>
+    <img src="https://cdn.glitch.global/eb18e63f-936a-4172-8bdd-9263c7a6a04a/1.jpg?v=1689605800209" crossorigin="anonymous" title="Click to get segmentation!" />
+    <p class="classification removed"></p>
+  </div>
+  
+  
+  <div class="segmentOnClick">
+    <canvas class="removed"></canvas>
+    <img src="https://cdn.glitch.global/eb18e63f-936a-4172-8bdd-9263c7a6a04a/2.jpg?v=1689605800878" crossorigin="anonymous" title="Click to get segmentation!" />
+    <p class="classification removed"></p>
+  </div>
+  
+  <div class="segmentOnClick">
+    <canvas class="removed"></canvas>
+    <img src="https://cdn.glitch.global/eb18e63f-936a-4172-8bdd-9263c7a6a04a/3.jpg?v=1689605801610" crossorigin="anonymous" title="Click to get segmentation!" />
+    <p class="classification removed"></p>
+  </div>
+  
+   <div class="segmentOnClick">
+    <canvas class="removed"></canvas>
+    <img src="https://cdn.glitch.global/eb18e63f-936a-4172-8bdd-9263c7a6a04a/4.jpg?v=1689605802142" crossorigin="anonymous" title="Click to get segmentation!" />
+    <p class="classification removed"></p>
+  </div>
+  
+  <div class="segmentOnClick">
+    <canvas class="removed"></canvas>
+    <img src="https://cdn.glitch.global/eb18e63f-936a-4172-8bdd-9263c7a6a04a/23.jpg?v=1689605802751" crossorigin="anonymous" title="Click to get segmentation!" />
+    <p class="classification removed"></p>
+  </div>
+  
+  <div class="segmentOnClick">
+    <canvas class="removed"></canvas>
+    <img src="https://cdn.glitch.global/eb18e63f-936a-4172-8bdd-9263c7a6a04a/24.jpg?v=1689605803228" crossorigin="anonymous" title="Click to get segmentation!" />
+    <p class="classification removed"></p>
+  </div>
+  
+   <div class="segmentOnClick">
+    <canvas class="removed"></canvas>
+    <img src="https://cdn.glitch.global/eb18e63f-936a-4172-8bdd-9263c7a6a04a/25.jpg?v=1689605803736" crossorigin="anonymous" title="Click to get segmentation!" />
+    <p class="classification removed"></p>
+  </div>
+  
+  <div class="segmentOnClick">
+    <canvas class="removed"></canvas>
+    <img src="https://cdn.glitch.global/eb18e63f-936a-4172-8bdd-9263c7a6a04a/5.jpg?v=1689605804256" crossorigin="anonymous" title="Click to get segmentation!" />
+    <p class="classification removed"></p>
+  </div>
+  
+  <div class="segmentOnClick">
+    <canvas class="removed"></canvas>
+    <img src="https://cdn.glitch.global/eb18e63f-936a-4172-8bdd-9263c7a6a04a/26.jpg?v=1689605804780" crossorigin="anonymous" title="Click to get segmentation!" />
+    <p class="classification removed"></p>
+  </div>
+  
+  <div class="segmentOnClick">
+    <canvas class="removed"></canvas>
+    <img src="https://cdn.glitch.global/eb18e63f-936a-4172-8bdd-9263c7a6a04a/6.jpg?v=1689605805429" crossorigin="anonymous" title="Click to get segmentation!" />
+    <p class="classification removed"></p>
+  </div>
+  
+  
+  <div class="segmentOnClick">
+    <canvas class="removed"></canvas>
+    <img src="https://cdn.glitch.global/eb18e63f-936a-4172-8bdd-9263c7a6a04a/14.jpg?v=1689605805921" crossorigin="anonymous" title="Click to get segmentation!" />
+    <p class="classification removed"></p>
+  </div>
+  
+  <div class="segmentOnClick">
+    <canvas class="removed"></canvas>
+    <img src="https://cdn.glitch.global/eb18e63f-936a-4172-8bdd-9263c7a6a04a/15.jpg?v=1689605806458" crossorigin="anonymous" title="Click to get segmentation!" />
+    <p class="classification removed"></p>
+  </div>
+  
+  
+   <div class="segmentOnClick">
+    <canvas class="removed"></canvas>
+    <img src="https://cdn.glitch.global/eb18e63f-936a-4172-8bdd-9263c7a6a04a/16.jpg?v=1689605807085" crossorigin="anonymous" title="Click to get segmentation!" />
+    <p class="classification removed"></p>
+  </div>
+  
+    <div class="segmentOnClick">
+    <canvas class="removed"></canvas>
+    <img src="https://cdn.glitch.global/eb18e63f-936a-4172-8bdd-9263c7a6a04a/17.jpg?v=1689605807611" crossorigin="anonymous" title="Click to get segmentation!" />
+    <p class="classification removed"></p>
+  </div>
+  
+  <div class="segmentOnClick">
+    <canvas class="removed"></canvas>
+    <img src="https://cdn.glitch.global/eb18e63f-936a-4172-8bdd-9263c7a6a04a/18.jpg?v=1689605808107" crossorigin="anonymous" title="Click to get segmentation!" />
+    <p class="classification removed"></p>
+  </div>
+  
+   <div class="segmentOnClick">
+    <canvas class="removed"></canvas>
+    <img src="https://cdn.glitch.global/eb18e63f-936a-4172-8bdd-9263c7a6a04a/19.jpg?v=1689605808667" crossorigin="anonymous" title="Click to get segmentation!" />
+    <p class="classification removed"></p>
+  </div>
+  
+  
+  <div class="segmentOnClick">
+    <canvas class="removed"></canvas>
+    <img src="https://cdn.glitch.global/eb18e63f-936a-4172-8bdd-9263c7a6a04a/20.jpg?v=1689605809261" crossorigin="anonymous" title="Click to get segmentation!" />
+    <p class="classification removed"></p>
+  </div>
+  
+  <div class="segmentOnClick">
+    <canvas class="removed"></canvas>
+    <img src="https://cdn.glitch.global/eb18e63f-936a-4172-8bdd-9263c7a6a04a/22.jpg?v=1689605809768" crossorigin="anonymous" title="Click to get segmentation!" />
+    <p class="classification removed"></p>
+  </div>
+  
+  <div class="segmentOnClick">
+    <canvas class="removed"></canvas>
+    <img src="https://cdn.glitch.global/eb18e63f-936a-4172-8bdd-9263c7a6a04a/7.jpg?v=1689605810249" crossorigin="anonymous" title="Click to get segmentation!" />
+    <p class="classification removed"></p>
+  </div>
+  
+  <div class="segmentOnClick">
+    <canvas class="removed"></canvas>
+    <img src="https://cdn.glitch.global/eb18e63f-936a-4172-8bdd-9263c7a6a04a/8.jpg?v=1689605810751" crossorigin="anonymous" title="Click to get segmentation!" />
+    <p class="classification removed"></p>
+  </div>
+  
+  <div class="segmentOnClick">
+    <canvas class="removed"></canvas>
+    <img src="https://cdn.glitch.global/eb18e63f-936a-4172-8bdd-9263c7a6a04a/9.jpg?v=1689605811219" crossorigin="anonymous" title="Click to get segmentation!" />
+    <p class="classification removed"></p>
+  </div>
+  
+  <div class="segmentOnClick">
+    <canvas class="removed"></canvas>
+    <img src="https://cdn.glitch.global/eb18e63f-936a-4172-8bdd-9263c7a6a04a/10.jpg?v=1689605811733" crossorigin="anonymous" title="Click to get segmentation!" />
+    <p class="classification removed"></p>
+  </div>
+  
+  <div class="segmentOnClick">
+    <canvas class="removed"></canvas>
+    <img src="https://cdn.glitch.global/eb18e63f-936a-4172-8bdd-9263c7a6a04a/11.jpg?v=1689605812455" crossorigin="anonymous" title="Click to get segmentation!" />
+    <p class="classification removed"></p>
+  </div>
+  
+   <div class="segmentOnClick">
+    <canvas class="removed"></canvas>
+    <img src="https://cdn.glitch.global/eb18e63f-936a-4172-8bdd-9263c7a6a04a/12.jpg?v=1689605813077" crossorigin="anonymous" title="Click to get segmentation!" />
+    <p class="classification removed"></p>
+  </div>
+  
+  <div class="segmentOnClick">
+    <canvas class="removed"></canvas>
+    <img src="https://cdn.glitch.global/eb18e63f-936a-4172-8bdd-9263c7a6a04a/13.jpg?v=1689605813557" crossorigin="anonymous" title="Click to get segmentation!" />
+    <p class="classification removed"></p>
+  </div>
+  
+  <div class="segmentOnClick">
+    <canvas class="removed"></canvas>
+    <img src="https://cdn.glitch.global/eb18e63f-936a-4172-8bdd-9263c7a6a04a/21.jpg?v=1689605814056" crossorigin="anonymous" title="Click to get segmentation!" />
+    <p class="classification removed"></p>
+  </div>
+        
+        
+</div>
+
+      </header>
+  
+  
+    
+  
+  <a href=""></a>
+  
+  
+    </div>
+<!-- partial -->
+  <script type="module" crossorigin="anonymous" src="./script.js"></script>
+  
+ 
+  
+</body>
+</html>
