@@ -1,101 +1,141 @@
-body{
-  margin:0;
-  padding:0;
-  font-family: Courier;
-}
-h2{font-size:1.5em;}
-label, p{
-  font-size:12.5px;
-}
-.App {
-  text-align: center;
+:root {
+  color-scheme: dark;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  background: #11131a;
+  color: #f7f7fb;
 }
 
-.App-logo {
-  pointer-events: none;
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-
-
-
-.removed {
-  display: hidden;
-  z-index: -1;
-}
-
-.invisible {
-  opacity: 0.2;
-}
-
-.videoView,
-.segmentOnClick {
-  position: relative;
-  float: left;
-  width: 200px;
-  margin: 2% 1%;
-  cursor: pointer;
-}
-
-.segmentOnClick p {
-  padding: 5px;
-  background-color: #007f8b;
-  color: #fff;
-  z-index: 2;
-  font-size: 12px;
+body {
   margin: 0;
 }
 
-
-.segmentOnClick {
-  z-index: 0;
+.app {
+  width: min(960px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 4rem 0;
 }
 
-.segmentOnClick canvas {
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  width: 100%;
-  
+header,
+section {
+  margin-bottom: 3rem;
 }
 
-.segmentOnClick img {
-  width: 100%;
-  opacity: 1;
+h1 {
+  max-width: 12ch;
+  margin: 0;
+  font-size: clamp(2.75rem, 8vw, 6rem);
+  line-height: 0.95;
 }
 
-.flex-cont {
+h2 {
+  font-size: 1.5rem;
+}
+
+p {
+  max-width: 64ch;
+  color: #c7cad6;
+  line-height: 1.6;
+}
+
+.eyebrow {
+  color: #de38ff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+#status {
+  color: #91f5c3;
+}
+
+#status.error {
+  color: #ff9fa9;
+}
+
+.controls {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: top;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #353948;
+  border-radius: 1rem;
+  background: #191c25;
+}
+
+.controls label {
+  display: grid;
+  gap: 0.5rem;
+  min-width: 10rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+button,
+.file-picker {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0 1rem;
+  border: 0;
+  border-radius: 0.65rem;
+  background: #de38ff;
+  color: #16001b;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.5;
+}
+
+.file-picker input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.preview {
+  position: relative;
+  width: min(100%, 640px);
+  margin-top: 1rem;
+  overflow: hidden;
+  border: 1px solid #353948;
+  border-radius: 1rem;
+  background: #08090d;
+}
+
+.preview video,
+.preview img,
+.preview canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.webcam-preview {
+  aspect-ratio: 4 / 3;
+}
+
+.webcam-preview video {
+  position: absolute;
+  opacity: 0;
+}
+
+.webcam-preview canvas,
+.image-preview canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.removed {
+  display: none;
 }
